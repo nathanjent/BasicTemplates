@@ -1,0 +1,7 @@
+# .Net
+bin/
+obj/
+*.user.csproj
+.vs/
+
+# Other 
