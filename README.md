@@ -14,7 +14,7 @@ A Dotnet New item template plugin for generating basic files.
 
     dotnet new code -A public -F class -o -N MyNamespace.Models -o ./Models -n MyAwesomeModel
 
-Creates the file ./Models/MyAwesomeModel.cs
+Creates the file ```./Models/MyAwesomeModel.cs```
     
     using System;
 
@@ -25,7 +25,7 @@ Creates the file ./Models/MyAwesomeModel.cs
         }
     }
 
-# Other basic C# constructs are supported
+## Other basic C# constructs are supported
 
     dotnet new code --help
 
