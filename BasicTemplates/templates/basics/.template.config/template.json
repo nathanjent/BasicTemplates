@@ -46,11 +46,11 @@
                 },
                 {
                     "choice": "protectedinternal",
-                    "description": "Set construct access protectedinternal"
+                    "description": "Set construct access protected internal"
                 },
                 {
                     "choice": "privateprotected",
-                    "description": "Set construct access privateprotected"
+                    "description": "Set construct access private protected"
                 }
             ],
             "datatype": "choice",
@@ -58,7 +58,7 @@
             "description": "Select the access modifier for the selected file construct [public, protected, internal, protectedinternal, privateprotected]",
             "type": "parameter"
         },
-        "FileConstruct": {
+        "Construct": {
             "choices": [
                 {
                     "choice": "class",
@@ -88,23 +88,23 @@
         },
         "InternalAbstractClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"internal\" && FileType == \"abstract\")"
+            "value": "(AccessModifier == \"internal\" && Construct == \"abstract\")"
         },
         "InternalClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"internal\" && FileType == \"class\")"
+            "value": "(AccessModifier == \"internal\" && Construct == \"class\")"
         },
         "InternalEnum": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"internal\" && FileType == \"enum\")"
+            "value": "(AccessModifier == \"internal\" && Construct == \"enum\")"
         },
         "InternalInterface": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"internal\" && FileType == \"interface\")"
+            "value": "(AccessModifier == \"internal\" && Construct == \"interface\")"
         },
         "InternalStruct": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"internal\" && FileType == \"struct\")"
+            "value": "(AccessModifier == \"internal\" && Construct == \"struct\")"
         },
         "Namespace": {
             "defaultValue": "Basic",
@@ -114,83 +114,83 @@
         },
         "PrivateProtectedAbstractClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"privateprotected\" && FileType == \"abstract\")"
+            "value": "(AccessModifier == \"privateprotected\" && Construct == \"abstract\")"
         },
         "PrivateProtectedClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"privateprotected\" && FileType == \"class\")"
+            "value": "(AccessModifier == \"privateprotected\" && Construct == \"class\")"
         },
         "PrivateProtectedEnum": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"privateprotected\" && FileType == \"enum\")"
+            "value": "(AccessModifier == \"privateprotected\" && Construct == \"enum\")"
         },
         "PrivateProtectedInterface": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"privateprotected\" && FileType == \"interface\")"
+            "value": "(AccessModifier == \"privateprotected\" && Construct == \"interface\")"
         },
         "PrivateProtectedStruct": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"privateprotected\" && FileType == \"struct\")"
+            "value": "(AccessModifier == \"privateprotected\" && Construct == \"struct\")"
         },
         "ProtectedAbstractClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protected\" && FileType == \"abstract\")"
+            "value": "(AccessModifier == \"protected\" && Construct == \"abstract\")"
         },
         "ProtectedClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protected\" && FileType == \"class\")"
+            "value": "(AccessModifier == \"protected\" && Construct == \"class\")"
         },
         "ProtectedEnum": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protected\" && FileType == \"enum\")"
+            "value": "(AccessModifier == \"protected\" && Construct == \"enum\")"
         },
         "ProtectedInterface": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protected\" && FileType == \"interface\")"
+            "value": "(AccessModifier == \"protected\" && Construct == \"interface\")"
         },
         "ProtectedInternalAbstractClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protectedinternal\" && FileType == \"abstract\")"
+            "value": "(AccessModifier == \"protectedinternal\" && Construct == \"abstract\")"
         },
         "ProtectedInternalClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protectedinternal\" && FileType == \"class\")"
+            "value": "(AccessModifier == \"protectedinternal\" && Construct == \"class\")"
         },
         "ProtectedInternalEnum": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protectedinternal\" && FileType == \"enum\")"
+            "value": "(AccessModifier == \"protectedinternal\" && Construct == \"enum\")"
         },
         "ProtectedInternalInterface": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protectedinternal\" && FileType == \"interface\")"
+            "value": "(AccessModifier == \"protectedinternal\" && Construct == \"interface\")"
         },
         "ProtectedInternalStruct": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protectedinternal\" && FileType == \"struct\")"
+            "value": "(AccessModifier == \"protectedinternal\" && Construct == \"struct\")"
         },
         "ProtectedStruct": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"protected\" && FileType == \"struct\")"
+            "value": "(AccessModifier == \"protected\" && Construct == \"struct\")"
         },
         "PublicAbstractClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"public\" && FileType == \"abstract\")"
+            "value": "(AccessModifier == \"public\" && Construct == \"abstract\")"
         },
         "PublicClass": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"public\" && FileType == \"class\")"
+            "value": "(AccessModifier == \"public\" && Construct == \"class\")"
         },
         "PublicEnum": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"public\" && FileType == \"enum\")"
+            "value": "(AccessModifier == \"public\" && Construct == \"enum\")"
         },
         "PublicInterface": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"public\" && FileType == \"interface\")"
+            "value": "(AccessModifier == \"public\" && Construct == \"interface\")"
         },
         "PublicStruct": {
             "type": "computed",
-            "value": "(ConstructAccessModifier == \"public\" && FileType == \"struct\")"
+            "value": "(AccessModifier == \"public\" && Construct == \"struct\")"
         }
     },
     "tags": {
