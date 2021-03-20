@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Nathan Jent",
+    "classifications": [
+        "Common",
+        "Code"
+    ],
+    "defaultName": "CodeItems",
+    "generatorVersions": "[1.0.0.0-*)",
+    "identity": "Basics.Templates.Record",
+    "name": "Basic Templates: Make new C# record files",
+    "postActions": [
+        {
+            "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+            "args": {
+                "files": "0"
+            },
+            "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+            "continueOnError": false,
+            "description": "Opens created file in the editor",
+            "manualInstructions": []
+        }
+    ],
+    "preferNameDirectory": false,
+    "primaryOutputs": [
+        {
+            "path": "Basic.cs"
+        }
+    ],
+    "shortName": "file-record",
+    "sourceName": "Basic",
+    "symbols": {
+        "Modifier": {
+            "choices": [
+                {
+                    "choice": "public",
+                    "description": "Set modifier public"
+                },
+                {
+                    "choice": "protectedinternal",
+                    "description": "Set modifier protected internal"
+                },
+                {
+                    "choice": "protected",
+                    "description": "Set modifier protected"
+                },
+                {
+                    "choice": "internal",
+                    "description": "Set modifier internal"
+                },
+                {
+                    "choice": "privateprotected",
+                    "description": "Set modifier private protected"
+                }
+            ],
+            "datatype": "choice",
+            "defaultValue": "internal",
+            "description": "Select the access modifier for the record [public, protected, internal, protectedinternal, privateprotected]",
+            "type": "parameter"
+        },
+        "Sealed": {
+            "datatype": "bool",
+            "defaultValue": "false",
+            "description": "Set true to create a sealed record file.",
+            "type": "parameter"
+        },
+        "Abstract": {
+            "datatype": "bool",
+            "defaultValue": "false",
+            "description": "Set true to create an abstract record file.",
+            "type": "parameter"
+        },
+        "InternalAbstract": {
+            "type": "computed",
+            "value": "(Modifier == \"internal\" && Abstract && !Sealed)"
+        },
+        "InternalSealed": {
+            "type": "computed",
+            "value": "(Modifier == \"internal\" && !Abstract && Sealed)"
+        },
+        "Internal": {
+            "type": "computed",
+            "value": "(Modifier == \"internal\" && !Abstract && !Sealed)"
+        },
+        "Namespace": {
+            "defaultValue": "Basic",
+            "description": "Namespace",
+            "replaces": "Basic.Templates",
+            "type": "parameter"
+        },
+        "PrivateProtectedAbstract": {
+            "type": "computed",
+            "value": "(Modifier == \"privateprotected\" && Abstract && !Sealed)"
+        },
+        "PrivateProtected": {
+            "type": "computed",
+            "value": "(Modifier == \"privateprotected\" && !Abstract && !Sealed)"
+        },
+        "ProtectedAbstract": {
+            "type": "computed",
+            "value": "(Modifier == \"protected\" && Abstract && !Sealed)"
+        },
+        "Protected": {
+            "type": "computed",
+            "value": "(Modifier == \"protected\" && !Abstract && !Sealed)"
+        },
+        "ProtectedInternalAbstract": {
+            "type": "computed",
+            "value": "(Modifier == \"protectedinternal\" && Abstract && !Sealed)"
+        },
+        "ProtectedInternal": {
+            "type": "computed",
+            "value": "(Modifier == \"protectedinternal\" && !Abstract && !Sealed)"
+        },
+        "PublicSealed": {
+            "type": "computed",
+            "value": "(Modifier == \"public\" && !Abstract && Sealed)"
+        },
+        "PublicAbstract": {
+            "type": "computed",
+            "value": "(Modifier == \"public\" && Abstract && !Sealed)"
+        },
+        "Public": {
+            "type": "computed",
+            "value": "(Modifier == \"public\" && !Abstract && !Sealed)"
+        }
+    },
+    "tags": {
+        "language": "C#",
+        "type": "item"
+    }
+}

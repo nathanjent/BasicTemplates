@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Nathan Jent",
+    "classifications": [
+        "Common",
+        "Code"
+    ],
+    "defaultName": "CodeItems",
+    "generatorVersions": "[1.0.0.0-*)",
+    "identity": "Basics.Templates.Struct",
+    "name": "Basic Templates: Make new C# struct files",
+    "postActions": [
+        {
+            "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+            "args": {
+                "files": "0"
+            },
+            "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+            "continueOnError": false,
+            "description": "Opens created file in the editor",
+            "manualInstructions": []
+        }
+    ],
+    "preferNameDirectory": false,
+    "primaryOutputs": [
+        {
+            "path": "Basic.cs"
+        }
+    ],
+    "shortName": "file-struct",
+    "sourceName": "Basic",
+    "symbols": {
+        "Modifier": {
+            "choices": [
+                {
+                    "choice": "public",
+                    "description": "Set modifier access public"
+                },
+                {
+                    "choice": "protected",
+                    "description": "Set modifier access protected"
+                },
+                {
+                    "choice": "internal",
+                    "description": "Set modifier access internal"
+                },
+                {
+                    "choice": "protectedinternal",
+                    "description": "Set modifier access protected internal"
+                },
+                {
+                    "choice": "privateprotected",
+                    "description": "Set modifier access private protected"
+                }
+            ],
+            "datatype": "choice",
+            "defaultValue": "internal",
+            "description": "Select the access modifier for the struct [public, protected, internal, protectedinternal, privateprotected]",
+            "type": "parameter"
+        },
+        "Internal": {
+            "type": "computed",
+            "value": "(Modifier == \"internal\")"
+        },
+        "Namespace": {
+            "defaultValue": "Basic",
+            "description": "Namespace",
+            "replaces": "Basic.Templates",
+            "type": "parameter"
+        },
+        "PrivateProtected": {
+            "type": "computed",
+            "value": "(Modifier == \"privateprotected\")"
+        },
+        "ProtectedInternal": {
+            "type": "computed",
+            "value": "(Modifier == \"protectedinternal\")"
+        },
+        "Protected": {
+            "type": "computed",
+            "value": "(Modifier == \"protected\")"
+        },
+        "Public": {
+            "type": "computed",
+            "value": "(Modifier == \"public\")"
+        }
+    },
+    "tags": {
+        "language": "C#",
+        "type": "item"
+    }
+}
