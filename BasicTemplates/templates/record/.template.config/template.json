@@ -8,6 +8,7 @@
     "defaultName": "CodeItems",
     "generatorVersions": "[1.0.0.0-*)",
     "identity": "Basics.Templates.Record",
+    "groupIdentity": "Basics.Templates",
     "name": "Basic Templates: Make new C# record files",
     "postActions": [
         {
@@ -30,99 +31,83 @@
     "shortName": "file-record",
     "sourceName": "Basic",
     "symbols": {
-        "Modifier": {
+        "AccessModifier": {
             "choices": [
                 {
-                    "choice": "public",
-                    "description": "Set modifier public"
-                },
-                {
-                    "choice": "protectedinternal",
-                    "description": "Set modifier protected internal"
-                },
-                {
-                    "choice": "protected",
-                    "description": "Set modifier protected"
-                },
-                {
                     "choice": "internal",
-                    "description": "Set modifier internal"
+                    "description": "Set access modifier to internal"
                 },
                 {
-                    "choice": "privateprotected",
-                    "description": "Set modifier private protected"
+                    "choice": "public",
+                    "description": "Set access modifier to public"
                 }
             ],
             "datatype": "choice",
             "defaultValue": "internal",
-            "description": "Select the access modifier for the record [public, protected, internal, protectedinternal, privateprotected]",
+            "description": "Select the access modifier for the record",
             "type": "parameter"
-        },
-        "Sealed": {
-            "datatype": "bool",
-            "defaultValue": "false",
-            "description": "Set true to create a sealed record file.",
-            "type": "parameter"
-        },
-        "Abstract": {
-            "datatype": "bool",
-            "defaultValue": "false",
-            "description": "Set true to create an abstract record file.",
-            "type": "parameter"
-        },
-        "InternalAbstract": {
-            "type": "computed",
-            "value": "(Modifier == \"internal\" && Abstract && !Sealed)"
-        },
-        "InternalSealed": {
-            "type": "computed",
-            "value": "(Modifier == \"internal\" && !Abstract && Sealed)"
-        },
-        "Internal": {
-            "type": "computed",
-            "value": "(Modifier == \"internal\" && !Abstract && !Sealed)"
         },
         "Namespace": {
-            "defaultValue": "Basic",
-            "description": "Namespace",
+            "defaultValue": "Basic.Templates",
+            "description": "Set the namespace",
             "replaces": "Basic.Templates",
             "type": "parameter"
         },
-        "PrivateProtectedAbstract": {
-            "type": "computed",
-            "value": "(Modifier == \"privateprotected\" && Abstract && !Sealed)"
+        "ReferenceModifier": {
+            "choices": [
+                {
+                    "choice": "unset",
+                    "description": "Do not set reference modifier"
+                },
+                {
+                    "choice": "abstract",
+                    "description": "Set reference modifier to abstract"
+                },
+                {
+                    "choice": "sealed",
+                    "description": "Set reference modifier to sealed"
+                },
+                {
+                    "choice": "static",
+                    "description": "Set reference modifier to static"
+                }
+            ],
+            "datatype": "choice",
+            "defaultValue": "unset",
+            "description": "Select the reference modifiers for the reference",
+            "type": "parameter"
         },
-        "PrivateProtected": {
+        "Internal": {
             "type": "computed",
-            "value": "(Modifier == \"privateprotected\" && !Abstract && !Sealed)"
+            "value": "(AccessModifier == \"internal\" && ReferenceModifier == \"unset\")"
         },
-        "ProtectedAbstract": {
+        "InternalSealed": {
             "type": "computed",
-            "value": "(Modifier == \"protected\" && Abstract && !Sealed)"
+            "value": "(AccessModifier == \"internal\" && ReferenceModifier == \"sealed\")"
         },
-        "Protected": {
+        "InternalStatic": {
             "type": "computed",
-            "value": "(Modifier == \"protected\" && !Abstract && !Sealed)"
+            "value": "(AccessModifier == \"internal\" && ReferenceModifier == \"static\")"
         },
-        "ProtectedInternalAbstract": {
+        "InternalAbstract": {
             "type": "computed",
-            "value": "(Modifier == \"protectedinternal\" && Abstract && !Sealed)"
-        },
-        "ProtectedInternal": {
-            "type": "computed",
-            "value": "(Modifier == \"protectedinternal\" && !Abstract && !Sealed)"
-        },
-        "PublicSealed": {
-            "type": "computed",
-            "value": "(Modifier == \"public\" && !Abstract && Sealed)"
-        },
-        "PublicAbstract": {
-            "type": "computed",
-            "value": "(Modifier == \"public\" && Abstract && !Sealed)"
+            "value": "(AccessModifier == \"internal\" && ReferenceModifier == \"abstract\")"
         },
         "Public": {
             "type": "computed",
-            "value": "(Modifier == \"public\" && !Abstract && !Sealed)"
+            "value": "(AccessModifier == \"public\" && ReferenceModifier == \"unset\")"
+        },
+        "PublicStatic": {
+            "type": "computed",
+            "value": "(AccessModifier == \"public\" && ReferenceModifier == \"static\")"
+        },
+        "PublicSealed": {
+            "type": "computed",
+            "value": "(AccessModifier == \"public\" && ReferenceModifier == \"sealed\")"
+        },
+        "PublicAbstract": {
+            "type": "computed",
+            "value": "(AccessModifier == \"public\" && ReferenceModifier == \"abstract\")"
         }
     },
     "tags": {

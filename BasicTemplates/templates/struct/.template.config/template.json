@@ -8,6 +8,7 @@
     "defaultName": "CodeItems",
     "generatorVersions": "[1.0.0.0-*)",
     "identity": "Basics.Templates.Struct",
+    "groupIdentity": "Basics.Templates",
     "name": "Basic Templates: Make new C# struct files",
     "postActions": [
         {
@@ -30,59 +31,35 @@
     "shortName": "file-struct",
     "sourceName": "Basic",
     "symbols": {
-        "Modifier": {
+        "Access": {
             "choices": [
                 {
                     "choice": "public",
-                    "description": "Set modifier access public"
-                },
-                {
-                    "choice": "protected",
-                    "description": "Set modifier access protected"
+                    "description": "Set access modifier to public"
                 },
                 {
                     "choice": "internal",
-                    "description": "Set modifier access internal"
-                },
-                {
-                    "choice": "protectedinternal",
-                    "description": "Set modifier access protected internal"
-                },
-                {
-                    "choice": "privateprotected",
-                    "description": "Set modifier access private protected"
+                    "description": "Set access modifier to internal"
                 }
             ],
             "datatype": "choice",
             "defaultValue": "internal",
-            "description": "Select the access modifier for the struct [public, protected, internal, protectedinternal, privateprotected]",
+            "description": "Select the access modifier for the struct",
             "type": "parameter"
         },
         "Internal": {
             "type": "computed",
-            "value": "(Modifier == \"internal\")"
+            "value": "(Access == \"internal\")"
         },
         "Namespace": {
-            "defaultValue": "Basic",
-            "description": "Namespace",
+            "defaultValue": "Basic.Templates",
+            "description": "Set the namespace",
             "replaces": "Basic.Templates",
             "type": "parameter"
         },
-        "PrivateProtected": {
-            "type": "computed",
-            "value": "(Modifier == \"privateprotected\")"
-        },
-        "ProtectedInternal": {
-            "type": "computed",
-            "value": "(Modifier == \"protectedinternal\")"
-        },
-        "Protected": {
-            "type": "computed",
-            "value": "(Modifier == \"protected\")"
-        },
         "Public": {
             "type": "computed",
-            "value": "(Modifier == \"public\")"
+            "value": "(Access == \"public\")"
         }
     },
     "tags": {

@@ -12,10 +12,10 @@ A Dotnet New item template plugin for generating basic files.
 
 ## Quickstart: Create a Public Class
 
-    dotnet new code -A public -F class -o -N MyNamespace.Models -o ./Models -n MyAwesomeModel
+    dotnet new file-class --AccessModifier public --ReferenceModifier abstract --Namespace MyNamespace.Models --output ./Models --name MyAwesomeModel
 
-Creates the file ```./Models/MyAwesomeModel.cs```
-    
+Creates the file `./Models/MyAwesomeModel.cs`
+
     using System;
 
     namespace Basic.Templates
@@ -27,5 +27,8 @@ Creates the file ```./Models/MyAwesomeModel.cs```
 
 ## Other basic C# constructs are supported
 
-    dotnet new code --help
+    dotnet new file-class --help
+    dotnet new file-interface --help
+    dotnet new file-record --help
+    dotnet new file-struct --help
 
