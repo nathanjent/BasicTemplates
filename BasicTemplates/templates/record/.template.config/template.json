@@ -27,7 +27,7 @@
             "path": "Basic.cs"
         }
     ],
-    "shortName": "file-record",
+    "shortName": "record",
     "sourceName": "Basic",
     "symbols": {
         "AccessModifier": {

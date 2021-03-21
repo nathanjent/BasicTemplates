@@ -27,7 +27,7 @@
             "path": "Basic.cs"
         }
     ],
-    "shortName": "file-class",
+    "shortName": "class",
     "sourceName": "Basic",
     "symbols": {
         "AccessModifier": {

@@ -12,7 +12,7 @@ A Dotnet New item template plugin for generating basic files.
 
 ## Quickstart: Create a Public Class
 
-    dotnet new file-class --AccessModifier public --ReferenceModifier abstract --Namespace MyNamespace.Models --output ./Models --name MyAwesomeModel
+    dotnet new class -A public -R abstract -N MyNamespace.Models -o ./Models -n MyAwesomeModel
 
 Creates the file `./Models/MyAwesomeModel.cs`
 
@@ -27,8 +27,24 @@ Creates the file `./Models/MyAwesomeModel.cs`
 
 ## Other basic C# constructs are supported
 
-    dotnet new file-class --help
-    dotnet new file-interface --help
-    dotnet new file-record --help
-    dotnet new file-struct --help
+    dotnet new class --help
+    dotnet new interface --help
+    dotnet new record --help
+    dotnet new struct --help
 
+## Additional Command Arguments
+
+### Namespace
+
+`--Namespace` (`-N`) sets the namespace in the generated file.
+
+### Access Modifier
+
+`--AccessModifier` (`-A`) sets the constructs access level. Only `internal` or `public`
+can be used for namespace level constructs.
+
+### Reference Modifier
+
+`--ReferenceModifier` (`-R`) sets the modifiers related to inheritance. The choices
+are `abstract`, `sealed`, and `static`. These are only available for the reference
+constructs, `class` and `record`.

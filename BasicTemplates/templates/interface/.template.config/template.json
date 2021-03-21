@@ -27,7 +27,7 @@
             "path": "Basic.cs"
         }
     ],
-    "shortName": "file-interface",
+    "shortName": "interface",
     "sourceName": "Basic",
     "symbols": {
         "Access": {

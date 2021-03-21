@@ -27,7 +27,7 @@
             "path": "Basic.cs"
         }
     ],
-    "shortName": "file-struct",
+    "shortName": "struct",
     "sourceName": "Basic",
     "symbols": {
         "Access": {
