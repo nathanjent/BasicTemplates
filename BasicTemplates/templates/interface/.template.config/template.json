@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Nathan Jent",
+    "classifications": [
+        "Common",
+        "Code"
+    ],
+    "defaultName": "CodeItems",
+    "generatorVersions": "[1.0.0.0-*)",
+    "identity": "Basics.Templates.Interface",
+    "name": "Basic Templates: Make new C# interface files",
+    "postActions": [
+        {
+            "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+            "args": {
+                "files": "0"
+            },
+            "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+            "continueOnError": false,
+            "description": "Opens created file in the editor",
+            "manualInstructions": []
+        }
+    ],
+    "preferNameDirectory": false,
+    "primaryOutputs": [
+        {
+            "path": "Basic.cs"
+        }
+    ],
+    "shortName": "interface",
+    "sourceName": "Basic",
+    "symbols": {
+        "Access": {
+            "choices": [
+                {
+                    "choice": "public",
+                    "description": "Set access modifier to public"
+                },
+                {
+                    "choice": "internal",
+                    "description": "Set access modifier to internal"
+                }
+            ],
+            "datatype": "choice",
+            "defaultValue": "internal",
+            "description": "Select the access modifier for the interface",
+            "type": "parameter"
+        },
+        "Internal": {
+            "type": "computed",
+            "value": "(Access == \"internal\")"
+        },
+        "Namespace": {
+            "defaultValue": "Basic.Templates",
+            "description": "Set the namespace",
+            "replaces": "Basic.Templates",
+            "type": "parameter"
+        },
+        "Public": {
+            "type": "computed",
+            "value": "(Access == \"public\")"
+        }
+    },
+    "tags": {
+        "language": "C#",
+        "type": "item"
+    }
+}

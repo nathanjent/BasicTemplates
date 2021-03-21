@@ -4,7 +4,7 @@
         <Title>Basic Templates</Title>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageType>Template</PackageType>
-        <VersionPrefix>0.1.0</VersionPrefix>
+        <VersionPrefix>0.2.0</VersionPrefix>
         <PackageId>BasicTemplates</PackageId>
         <Authors>Nathan D. Jent</Authors>
         <Description>Basic file templates to use when creating an application.</Description>
