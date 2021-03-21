@@ -22,10 +22,10 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore **/*.csproj
     - name: Pack CI Prerelease Version
-      run: dotnet pack --configuration Release --no-restore --version-suffix "ci${{ github.run_number }}"
+      run: dotnet pack --configuration Release --no-restore --version-suffix "ci${{ github.run_number }}" **/*.csproj
       if: ${{ success() && !startsWith(github.ref, 'refs/tags/v') }}
     - name: Pack Tagged Version
-      run: dotnet pack --configuration Release --no-restore -p:Version=$(echo ${{ github.ref }} | sed 's/.*\/v//')
+      run: dotnet pack --configuration Release --no-restore -p:Version=$(echo ${{ github.ref }} | sed 's/.*\/v//') **/*.csproj
       if: ${{ success() && startsWith(github.ref, 'refs/tags/v') }}
     - name: Upload Nuget package artifacts
       uses: actions/upload-artifact@v2
