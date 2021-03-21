@@ -17,7 +17,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 3.1.x
         source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -36,7 +36,5 @@ jobs:
     - name: Pack Tagged Version
       run: dotnet pack --configuration Release --no-restore -p:Version=$(echo ${{ github.ref }} | sed 's/.*\/v//') **/*.csproj
       if: ${{ success() && startsWith(github.ref, 'refs/tags/v') }}
-
     - name: Nuget Push
       run: dotnet nuget push "**/*.nupkg" --skip-duplicate
-
