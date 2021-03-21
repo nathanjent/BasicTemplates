@@ -23,6 +23,8 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         DOTNET_NOLOGO: true
 
+    - name: Variables
+
     - name: Restore dependencies
       run: dotnet restore **/*.csproj
 
@@ -30,15 +32,24 @@ jobs:
       run: dotnet build --configuration Release --no-restore **/*.csproj
 
     - name: Pack CI Prerelease Version
-      run: |
-        git_hash=$(git rev-parse --short "$GITHUB_SHA")
-        dotnet pack --configuration Release --no-restore --version-suffix "ci${{ github.run_number }}+$git_hash" **/*.csproj
+      shell: bash
       if: ${{ success() && !startsWith(github.ref, 'refs/tags/v') }}
+      run: |
+        dotnet pack \
+          --configuration Release \
+          --no-restore \
+          --version-suffix "ci${{ github.run_number }}+${{ github.sha }}" \
+          **/*.csproj
+
 
     - name: Pack Tagged Version
-      run: |
-        git_hash=$(git rev-parse --short "$GITHUB_SHA")
-        dotnet pack --configuration Release --no-restore -p:Version="$(echo ${{ github.ref }} | sed 's/.*\/v//')+$git_hash" **/*.csproj
       if: ${{ success() && startsWith(github.ref, 'refs/tags/v') }}
+      run: |
+        dotnet pack \
+          --configuration Release \
+          --no-restore \
+          -p:Version="$(echo ${{ github.ref }} | sed 's/.*\/v//')+${{ github.sha }}" \
+          **/*.csproj
+
     - name: Nuget Push
       run: dotnet nuget push "**/*.nupkg" --skip-duplicate
