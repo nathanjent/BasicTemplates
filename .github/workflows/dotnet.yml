@@ -30,11 +30,15 @@ jobs:
       run: dotnet build --configuration Release --no-restore **/*.csproj
 
     - name: Pack CI Prerelease Version
-      run: dotnet pack --configuration Release --no-restore --version-suffix "ci${{ github.run_number }}" **/*.csproj
+      run: |
+        git_hash=$(git rev-parse --short "$GITHUB_SHA")
+        dotnet pack --configuration Release --no-restore --version-suffix "ci${{ github.run_number }}+$git_hash" **/*.csproj
       if: ${{ success() && !startsWith(github.ref, 'refs/tags/v') }}
 
     - name: Pack Tagged Version
-      run: dotnet pack --configuration Release --no-restore -p:Version=$(echo ${{ github.ref }} | sed 's/.*\/v//') **/*.csproj
+      run: |
+        git_hash=$(git rev-parse --short "$GITHUB_SHA")
+        dotnet pack --configuration Release --no-restore -p:Version="$(echo ${{ github.ref }} | sed 's/.*\/v//')+$git_hash" **/*.csproj
       if: ${{ success() && startsWith(github.ref, 'refs/tags/v') }}
     - name: Nuget Push
       run: dotnet nuget push "**/*.nupkg" --skip-duplicate
