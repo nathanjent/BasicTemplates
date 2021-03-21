@@ -8,7 +8,6 @@
     "defaultName": "CodeItems",
     "generatorVersions": "[1.0.0.0-*)",
     "identity": "Basics.Templates.Struct",
-    "groupIdentity": "Basics.Templates",
     "name": "Basic Templates: Make new C# struct files",
     "postActions": [
         {
