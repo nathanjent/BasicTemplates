@@ -25,7 +25,7 @@ Creates the file `./Models/MyAwesomeModel.cs`
         }
     }
 
-## Other basic C# constructs are supported
+Other basic C# types are supported.
 
     dotnet new class --help
     dotnet new interface --help
@@ -40,11 +40,11 @@ Creates the file `./Models/MyAwesomeModel.cs`
 
 ### Access Modifier
 
-`--AccessModifier` (`-A`) sets the constructs access level. Only `internal` or `public`
-can be used for namespace level constructs.
+`--AccessModifier` (`-A`) sets the type's access level. Only `internal` or `public`
+can be used for namespace level types.
 
 ### Reference Modifier
 
 `--ReferenceModifier` (`-R`) sets the modifiers related to inheritance. The choices
 are `abstract`, `sealed`, and `static`. These are only available for the reference
-constructs, `class` and `record`.
+types, `class` and `record`.
