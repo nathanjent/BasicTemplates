@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageType>Template</PackageType>
-        <PackageVersion>1.0</PackageVersion>
-        <PackageId>BasicTemplates</PackageId>
         <Title>Basic Templates</Title>
-        <Authors>Nathan Jent</Authors>
-        <Description>Basic templates to use when creating an application.</Description>
-        <PackageTags>dotnet-new;templates</PackageTags>
-
         <TargetFramework>netstandard2.0</TargetFramework>
-
+        <PackageType>Template</PackageType>
+        <VersionPrefix>0.1.0</VersionPrefix>
+        <PackageId>BasicTemplates</PackageId>
+        <Authors>Nathan D. Jent</Authors>
+        <Description>Basic file templates to use when creating an application.</Description>
+        <PackageTags>dotnet-new;templates</PackageTags>
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
+        <RepositoryUrl>https://github.com/nathanjent/BasicTemplates</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
