@@ -51,4 +51,4 @@ jobs:
       with:
         name: nuget-packages
     - name: Nuget Push
-      run: dotnet nuget push "**/*.nupkg" --skip-duplicate
+      run: dotnet nuget push "**/*.nupkg" -s https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
